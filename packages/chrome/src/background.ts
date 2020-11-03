@@ -1,5 +1,4 @@
-import { blockedList } from './utils/blocked-list';
-import { visitedList } from './utils/visited-list';
+import { blockedList, visitedList } from 'site-killer-common';
 
 chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
     const url = new URL(tab.url);

@@ -33,7 +33,7 @@ module.exports = {
             ]
         }),
         new ZipPlugin({
-            filename: 'site-killer'
+            filename: './packed/site-killer'
         })
     ]
 };
