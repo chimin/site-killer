@@ -1,5 +1,6 @@
 const path = require('path');
 const CopyPlugin = require('copy-webpack-plugin');
+const ZipPlugin = require('min-zip-webpack-plugin');
 
 module.exports = {
     entry: {
@@ -30,6 +31,9 @@ module.exports = {
                     filter: path => path.match('^.*\.(json|html|png)$')
                 }
             ]
+        }),
+        new ZipPlugin({
+            filename: 'site-killer'
         })
     ]
-}
+};

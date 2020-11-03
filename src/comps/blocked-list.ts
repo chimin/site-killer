@@ -10,7 +10,7 @@ export function blockedListComponent() {
 
     const items = blockedList.get();
     if (items.length) {
-        items.forEach(e => ul.appendChild(listItem(e));
+        items.forEach(e => ul.appendChild(listItem(e)));
     } else {
         const li = document.createElement('li');
         li.textContent = 'Empty';
