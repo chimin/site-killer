@@ -1,4 +1,5 @@
 const path = require('path');
+const CopyPlugin = require('copy-webpack-plugin');
 const TypingsBundlerPlugin = require('typings-bundler-plugin');
 
 module.exports = {
@@ -15,7 +16,7 @@ module.exports = {
             {
                 test: /\.tsx?$/,
                 use: 'ts-loader',
-                exclude: /node_modules/,
+                exclude: /node_modules/
             }
         ]
     },
@@ -23,6 +24,11 @@ module.exports = {
         extensions: ['.tsx', '.ts', '.js']
     },
     plugins: [
+        new CopyPlugin({
+            patterns: [
+                { from: './assets' }
+            ]
+        }),
         new TypingsBundlerPlugin({
             out: 'index.d.ts'
         })

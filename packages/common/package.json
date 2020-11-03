@@ -2,15 +2,16 @@
     "name": "site-killer-common",
     "version": "1.0.0",
     "main": "./dist/index.js",
+    "scripts": {
+        "build": "webpack",
+        "dev": "webpack --watch --devtool inline-source-map"
+    },
     "devDependencies": {
+        "copy-webpack-plugin": "^6.3.0",
         "ts-loader": "^8.0.7",
         "typescript": "^4.0.5",
         "typings-bundler-plugin": "^1.0.0",
         "webpack": "^5.3.2",
         "webpack-cli": "^4.1.0"
-    },
-    "scripts": {
-        "build": "webpack",
-        "dev": "webpack --watch --devtool inline-source-map"
     }
 }
