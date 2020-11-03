@@ -2,5 +2,10 @@
   "devDependencies": {
     "lerna": "^3.22.1"
   },
-  "name": "site-killer"
+  "name": "site-killer",
+  "scripts": {
+    "bootstrap": "lerna bootstrap",
+    "build": "lerna run build --stream",
+    "dev": "lerna run dev --stream"
+  }
 }
