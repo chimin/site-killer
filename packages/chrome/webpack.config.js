@@ -1,6 +1,6 @@
 const path = require('path');
 const CopyPlugin = require('copy-webpack-plugin');
-const ZipPlugin = require('min-zip-webpack-plugin');
+const ZipPlugin = require('zip-webpack-plugin');
 
 module.exports = {
     entry: {
@@ -30,7 +30,8 @@ module.exports = {
             ]
         }),
         new ZipPlugin({
-            filename: './packed/site-killer'
+            path: path.resolve(__dirname, 'out'),
+            filename: 'site-killer.zip'
         })
     ]
 };

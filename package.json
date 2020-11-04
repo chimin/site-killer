@@ -4,7 +4,7 @@
   },
   "name": "site-killer",
   "scripts": {
-    "bootstrap": "lerna bootstrap",
+    "bootstrap": "lerna bootstrap --force-local",
     "build": "lerna run build --parallel",
     "dev": "lerna run dev --parallel"
   }
