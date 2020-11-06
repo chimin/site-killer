@@ -4,8 +4,8 @@
   },
   "name": "site-killer",
   "scripts": {
-    "bootstrap": "lerna bootstrap --force-local",
-    "build": "lerna run build --parallel",
-    "dev": "lerna run dev --parallel"
+    "bootstrap": "lerna exec --stream --include-dependencies npm install",
+    "build": "lerna run --stream --include-dependencies build",
+    "dev": "lerna run --parallel dev"
   }
 }
