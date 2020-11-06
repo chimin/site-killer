@@ -1,7 +1,6 @@
 import { blockedListComponent } from './blocked-list';
 import { visitedListComponent } from './visited-list';
-import { blockedList } from '../utils/blocked-list';
-import { visitedList } from '../utils/visited-list';
+import { globalEvents } from '../utils/global-events';
 
 export function popupComponent() {
     const div = document.createElement('div');
@@ -12,8 +11,8 @@ export function popupComponent() {
         div.appendChild(visitedListComponent());
     }
 
-    blockedList.observe(() => refresh());
-    visitedList.observe(() => refresh());
+    globalEvents.blockedList.register(() => refresh());
+    globalEvents.visitedList.register(() => refresh());
 
     refresh();
 

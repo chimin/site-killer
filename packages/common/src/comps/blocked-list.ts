@@ -1,4 +1,5 @@
 import { blockedList } from "../utils/blocked-list";
+import { globalEvents } from "../utils/global-events";
 
 export function blockedListComponent() {
     const div = document.createElement('div');
@@ -36,6 +37,15 @@ function header() {
         return false;
     };
     header.appendChild(clearButton);
+
+    const rerunButton = document.createElement('a');
+    rerunButton.textContent = '[Rerun]';
+    rerunButton.href = "#";
+    rerunButton.onclick = () => {
+        globalEvents.rerun.notify();
+        return false;
+    };
+    header.appendChild(rerunButton);
 
     return header;
 }

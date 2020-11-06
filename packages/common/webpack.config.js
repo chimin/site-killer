@@ -32,5 +32,8 @@ module.exports = {
         new TypingsBundlerPlugin({
             out: 'index.d.ts'
         })
-    ]
+    ],
+    watchOptions: {
+        ignored: /\/common\/dist\//
+    }
 };

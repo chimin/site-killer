@@ -33,5 +33,8 @@ module.exports = {
             path: path.resolve(__dirname, 'out'),
             filename: 'site-killer.zip'
         })
-    ]
+    ],
+    watchOptions: {
+        ignored: /\/chrome\/(dist|out)\//
+    }
 };

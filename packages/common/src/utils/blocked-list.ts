@@ -1,6 +1,6 @@
-export namespace blockedList {
+import { globalEvents } from "./global-events";
 
-    const observeCallbacks: (() => void)[] = [];
+export namespace blockedList {
 
     export function get() {
         const list = JSON.parse(localStorage.getItem('blockedList'));
@@ -15,29 +15,21 @@ export namespace blockedList {
         const list = get();
         const newList = list.filter(e => e != hostname).concat(hostname).sort();
         update(newList);
-        notifyObservers();
+        globalEvents.blockedList.notify();
     }
 
     export function remove(hostname: string) {
         update(get().filter(e => e != hostname));
-        notifyObservers();
+        globalEvents.blockedList.notify();
     }
 
     export function clear() {
         update([]);
-        notifyObservers();
+        globalEvents.blockedList.notify();
     }
 
     export function contains(hostname: string) {
         return !!get().find(e => e == hostname);
-    }
-
-    export function observe(callback: () => void) {
-        observeCallbacks.push(callback);
-    }
-
-    function notifyObservers() {
-        observeCallbacks.forEach(e => e());
     }
 
 }

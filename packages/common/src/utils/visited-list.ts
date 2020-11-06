@@ -1,9 +1,8 @@
 import { arrayKeepLast } from "./arrays";
 import { blockedList } from "./blocked-list";
+import { globalEvents } from "./global-events";
 
 export namespace visitedList {
-
-    const observeCallbacks: (() => void)[] = [];
 
     export function get() {
         const list = JSON.parse(localStorage.getItem('visitedList'));
@@ -23,25 +22,17 @@ export namespace visitedList {
         const newList = list.filter(e => e != url.hostname).concat(url.hostname);
         arrayKeepLast(newList, 100);
         update(newList);
-        notifyObservers();
+        globalEvents.visitedList.notify();
     }
 
     export function remove(hostname: string) {
         update(get().filter(e => e != hostname));
-        notifyObservers();
+        globalEvents.visitedList.notify();
     }
 
     export function clear() {
         update([]);
-        notifyObservers();
-    }
-
-    export function observe(callback: () => void) {
-        observeCallbacks.push(callback);
-    }
-
-    function notifyObservers() {
-        observeCallbacks.forEach(e => e());
+        globalEvents.visitedList.notify();
     }
 
 }
