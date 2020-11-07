@@ -17,6 +17,7 @@ export function visitedListComponent() {
         li.textContent = 'Empty';
         ul.appendChild(li);
     }
+    
     return div;
 }
 
